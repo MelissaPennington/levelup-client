@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
-import { getEvents } from '../utils/data/eventData';
-import EventCard from '../components/event/EventCard';
-import { useAuth } from '../utils/context/authContext';
+import { getEvents } from '../../utils/data/eventData';
+import EventCard from '../../components/event/EventCard';
+import { useAuth } from '../../utils/context/authContext';
 
 function Events() {
   const [events, setEvents] = useState([]);
