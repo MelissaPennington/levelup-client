@@ -15,7 +15,9 @@ export default function EditEvent() {
 
   return (
     <>
-      <EventForm eventObj={editEvent} />
+      {Object.keys(editEvent).length > 0 && (
+        <EventForm eventObj={editEvent} />
+      )}
     </>
   );
 }

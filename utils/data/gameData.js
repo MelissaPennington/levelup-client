@@ -1,11 +1,11 @@
 import { clientCredentials } from '../client';
 
-const getGames = (uid) => new Promise((resolve, reject) => {
+const getGames = () => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/games`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `${uid}`,
+      // Authorization: `${uid}`,
     },
     // body: JSON.stringify(uid),
   })
@@ -36,9 +36,14 @@ const getGameTypes = () => new Promise((resolve, reject) => {
 });
 
 const getSingleGame = (id) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/games/${id}`)
+  fetch(`${clientCredentials.databaseURL}/games/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
     .then((response) => response.json())
-    .then(resolve)
+    .then((data) => resolve(data))
     .catch(reject);
 });
 

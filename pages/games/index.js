@@ -16,6 +16,8 @@ function Home() {
     getAllGames();
   }, []);
 
+  console.warn(games);
+
   return (
     <article className="games">
       <h1>Games</h1>
@@ -25,15 +27,10 @@ function Home() {
         }}
       >Register New Game
       </Button>
-      {games.map((game) => (
+      {games?.map((game) => (
         <section key={`game--${game.id}`} className="game">
           <GameCard
-            id={game.id}
-            title={game.title}
-            maker={game.maker}
-            numberOfPlayers={game.number_of_players}
-            skillLevel={game.skill_level}
-            gameType={game.game_type}
+            gameObj={game}
             onUpdate={getAllGames}
           />
         </section>
